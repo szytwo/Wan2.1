@@ -1,6 +1,6 @@
 # 使用 PyTorch 官方 CUDA 运行时镜像
 # https://hub.docker.com/r/pytorch/pytorch/tags
-FROM pytorch/pytorch:2.5.1-cuda12.4-cudnn9-runtime
+FROM pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel
 
 # 替换软件源为清华镜像
 RUN sed -i 's|archive.ubuntu.com|mirrors.tuna.tsinghua.edu.cn|g' /etc/apt/sources.list && \
@@ -57,4 +57,4 @@ RUN pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple \
     && rm -rf wheels 
 
 # 默认启动命令，可在 docker run/compose 中覆盖
-CMD ["python", "generate.py"]
+# CMD ["python", "generate.py"]
