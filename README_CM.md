@@ -14,6 +14,7 @@ nvidia-smi -L  # 查看GUID
 
 modelscope download Wan-AI/Wan2.1-T2V-1.3B --local_dir ./models/Wan2.1-T2V-1.3B
 modelscope download Qwen/Qwen2.5-7B-Instruct --local_dir ./models/Qwen2.5-7B-Instruct
+modelscope download Qwen/Qwen2.5-3B-Instruct --local_dir ./models/Qwen2.5-3B-Instruct
 
 ```
 

@@ -33,6 +33,7 @@ deploy01/
 venv/
 wheels/win/
 example/test/
+models/Qwen2.5-7B-Instruct
 
 # data files
 *.bat
