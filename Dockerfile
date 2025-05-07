@@ -53,10 +53,8 @@ COPY . /code
 # 升级 pip 并安装 Python 依赖：
 RUN pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple \
     && pip install -r api_requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple \
-    && rm -rf wheels
-
-# （可选）安装加速库，如 xformers
-RUN pip install xformers -i https://pypi.tuna.tsinghua.edu.cn/simple
+    && pip install "xfuser>=0.4.1" -i https://pypi.tuna.tsinghua.edu.cn/simple \
+    && rm -rf wheels 
 
 # 默认启动命令，可在 docker run/compose 中覆盖
 CMD ["python", "generate.py"]

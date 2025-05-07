@@ -41,5 +41,7 @@ wheels/
 # VS Code configuration dir
 .vscode/
 
+# PyCharm files
 .idea/
+
 venv/

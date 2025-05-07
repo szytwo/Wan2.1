@@ -36,6 +36,3 @@ __pycache__/
 
 # data files
 *.bat
-
-/MFA/global_config.yaml
-/MFA/extracted_models/
