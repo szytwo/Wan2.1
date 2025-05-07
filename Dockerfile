@@ -56,5 +56,8 @@ RUN pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple \
     && pip install "xfuser>=0.4.1" -i https://pypi.tuna.tsinghua.edu.cn/simple \
     && rm -rf wheels 
 
+# 暴露容器端口
+EXPOSE 7860
+
 # 默认启动命令，可在 docker run/compose 中覆盖
 # CMD ["python", "generate.py"]

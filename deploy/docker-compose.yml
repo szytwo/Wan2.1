@@ -10,6 +10,7 @@ services:
     runtime: nvidia
     privileged: true
     volumes:
+      - d:/AI/Wan2.1/models:/code/models
       - d:/AI/Wan2.1/results:/code/results
       - d:/AI/Wan2.1/error:/code/error
       - d:/AI/Wan2.1/logs:/code/logs
@@ -24,5 +25,8 @@ services:
             - driver: nvidia
               capabilities: [ gpu ]
     shm_size: '32g'
+    command: bash -c "cd gradio && python t2v_1.3B_singleGPU.py --prompt_extend_method 'local_qwen' --prompt_extend_model ../models/Qwen2.5-7B-Instruct --ckpt_dir ../models/Wan2.1-T2V-1.3B"
+    ports:
+      - '7860:7860'
     networks:
       - ai_network
