@@ -22,7 +22,6 @@
 __pycache__/
 
 # folders
-models/
 results/
 results01/
 error/

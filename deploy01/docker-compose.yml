@@ -10,7 +10,6 @@ services:
     runtime: nvidia
     privileged: true
     volumes:
-      - d:/AI/Wan2.1/models:/code/models
       - d:/AI/Wan2.1/results01:/code/results
       - d:/AI/Wan2.1/error01:/code/error
       - d:/AI/Wan2.1/logs01:/code/logs
