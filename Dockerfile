@@ -52,7 +52,7 @@ COPY . /code
 
 # 升级 pip 并安装 Python 依赖：
 RUN pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple \
-    && pip install wheels/linux/flash_attn-2.7.4.post1+cu12torch2.5cxx11abiTRUE-cp311-cp311-linux_x86_64.whl -i https://pypi.tuna.tsinghua.edu.cn/simple \
+    && pip install wheels/linux/flash_attn-2.7.4.post1+cu12torch2.5cxx11abiFALSE-cp311-cp311-linux_x86_64.whl -i https://pypi.tuna.tsinghua.edu.cn/simple \
     && pip install -r api_requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple \
     && pip install "xfuser>=0.4.1" -i https://pypi.tuna.tsinghua.edu.cn/simple \
     && rm -rf wheels 
