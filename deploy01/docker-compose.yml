@@ -3,22 +3,20 @@ networks:
     driver: bridge
 
 services:
-  montreal-forced-aligner-01:
-    image: montreal-forced-aligner:1.0
-    container_name: montreal-forced-aligner-01
+  wan2.1-01:
+    image: wan2.1:1.0
+    container_name: wan2.1-01
     restart: always
     runtime: nvidia
     privileged: true
     volumes:
-      - d:/AI/Montreal-Forced-Aligner/results01:/code/results
-      - d:/AI/Montreal-Forced-Aligner/error01:/code/error
-      - d:/AI/Montreal-Forced-Aligner/logs01:/code/logs
+      - d:/AI/Wan2.1/models:/code/models
+      - d:/AI/Wan2.1/results01:/code/results
+      - d:/AI/Wan2.1/error01:/code/error
+      - d:/AI/Wan2.1/logs01:/code/logs
     environment:
       - TQDM_DISABLE=1 # 全局关闭进度条显示
       - PYTHONUNBUFFERED=1 # 取消标准输出缓冲
-      - CUDA_VISIBLE_DEVICES=2
-      - ASR_URL=http://host.docker.internal:17868/api/v1/asr
-      - PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:1024
     tty: true  # 分配伪终端
     deploy:
       resources:
@@ -27,8 +25,8 @@ services:
             - driver: nvidia
               capabilities: [ gpu ]
     shm_size: '32g'
+    command: bash -c "cd gradio && python t2v_1.3B_singleGPU.py --prompt_extend_method 'local_qwen' --prompt_extend_model ../models/Qwen2.5-7B-Instruct --ckpt_dir ../models/Wan2.1-T2V-1.3B"
     ports:
-      - '18119:8119'
-    command: python /code/api.py
+      - '17860:7860'
     networks:
       - ai_network-01
