@@ -28,10 +28,10 @@ docker save -o wan2.1-1.0.tar wan2.1:1.0 # 导出镜像
 docker-compose up -d # 后台运行容器
 docker builder prune -a #强制清理所有构建缓存
 
-docker compose run --rm wan2.1 python generate.py  --task t2v-1.3B --size 832*480 --ckpt_dir ./Wan2.1-T2V-1.3B --sample_shift 8 --sample_guide_scale 6 --prompt "Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stage." --save_file results/cats_boxing.mp4
+docker compose run --rm wan2.1 python generate.py  --task t2v-1.3B --size 832*480 --ckpt_dir ./models/Wan2.1-T2V-1.3B --sample_shift 8 --sample_guide_scale 6 --prompt "Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stage." --save_file results/cats_boxing.mp4
 
 
-docker compose run --rm wan2.1 torchrun --nproc_per_node=2 generate.py --task t2v-1.3B --size 832*480 --ckpt_dir ./Wan2.1-T2V-1.3B --dit_fsdp --t5_fsdp --ulysses_size 2 --sample_shift 8 --sample_guide_scale 6 --prompt "Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stage." --save_file results/cats_boxing.mp4
+docker compose run --rm wan2.1 torchrun --nproc_per_node=2 generate.py --task t2v-1.3B --size 832*480 --ckpt_dir ./models/Wan2.1-T2V-1.3B --dit_fsdp --t5_fsdp --ulysses_size 2 --sample_shift 8 --sample_guide_scale 6 --prompt "Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stage." --save_file results/cats_boxing.mp4
 
 ```
 
